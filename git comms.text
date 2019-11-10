@@ -1,0 +1,24 @@
+#git installing help file, for tools and other used on mac.
+#by Wilmar
+
+brew install git
+git config --global user.name "Wilmar Rodriguez"
+git config --global user.email "rwilmar@vidplex.com"
+git config --list
+git config --global color.ui true
+
+#configurar editor atom#
+git config --global core.editor "atom --wait"
+#config git autocomplete#
+#https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+mv git-completion.txt ~/.git-completion.bash 
+
+#config bash.profile
+cd ~
+nano .bash_profile
+#git autocompletion load (add to file)
+if [ -f ~/.git-completion.bash ]; then
+        source ~/.git-completion.bash
+fi
+
+
