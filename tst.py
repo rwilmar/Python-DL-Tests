@@ -74,7 +74,10 @@ def mostPopular(arr, len):
     if secPop[1]==0:
         return popular[0]
     else:
-        return secPop[0]
+        if secPop[0]<popular[0]:
+            return secPop[0]
+        else:
+            return popular[0]
     #print ("2nd num: ",out[1])
 
 thislist = ["apple", "banana", "cherry"]

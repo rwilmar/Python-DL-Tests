@@ -1,0 +1,19 @@
+rosnode list
+rqt_graph
+rosnode info /<nodename>
+
+rostopic list
+rostopic info /<topicname>
+rostopic echo /<topicname>
+
+
+Don't forget to source your workspace if you want to use ROS commands! If you've followed the procedure under the Course Standards section correctly, you only need to execute the following in the shell:
+$ source $HOME/hrwros_ws/devel/setup.bash
+
+Display a list of all topics that are currently being exchanged between active nodes
+rostopic list
+Display information about the data structure of a specific topic
+rostopic info <topic_name>
+Print the current content of a topic in the terminal
+rostopic echo <topic_name>
+Important detail: Do not forget the "/" before node and topic names!
