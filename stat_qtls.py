@@ -1,3 +1,5 @@
+import math
+
 def median(data):
     len2=int(len(data)/2)
     if (len(data)%2==0):
@@ -32,28 +34,87 @@ def splitList(a_list):
     half = len(a_list)//2
     return a_list[:half], a_list[half:]
 
-size = int("6")
-numbers = list(map(int, "6 12 8 10 20 16".split()))
-numbers.sort()
-mdn=median(numbers)
-(low, high) = splitListByMdn(numbers,mdn)
-print(median(low))
-print(mdn)
-print(median(high))
-print(stadev(numbers))
 
-#interquartile range
+def secondLargest(arr):
+    out=[]
+    for j in reversed(range(max(arr)+1)):
+        for i in range(len(arr)):
+            if (arr[i]==j):
+                out.append(arr[i])
+            if len(out)==3:
+                break
 
-dat=[]
-numbers = list(map(int, "10 40 30 50 20 10 40 30 50 20 1 2 3 4 5 6 7 8 9 10".split()))
-freqs = list(map(int, "1 2 3 4 5 6 7 8 9 10 10 40 30 50 20 10 40 30 50 20".split()))
-for n in range(len(numbers)):
-    for i in range(freqs[n]):
-        dat.append(numbers[n])
-dat.sort()
-#mdn=median(dat)
-(low, high) = splitList(dat)
+    print ("2nd num: ",out[1])
 
-print(median(low), median(high))
+def larger_than(n1, n2):
+    if len(n1)>len(n2):
+        return True
+    elif len(n1)==len(n2):
+        for e in reversed(range(len(n1))):
+            if n1[e]>n2[e]:
+                return True
+        return False
+    else:
+        return False
+
+def RooksSafe(board):
+    for row in range(len(board)):
+        for col in range(len(board[row])):
+            play=0
+            if board[row][col]==1:
+                #print("player on [", row,",",col,"]")
+                play+=1
+                if (sum(board[row])>1):
+                    return False
+            if play>1:
+                return False
+    return True
+
+def avgCoord (coord1, coord2, coord3):
+    d1=math.sqrt((coord2[0] - coord1[0])**2 - (coord2[1] - coord1[1])**2) #entre coord1 y coord2
+    d2=math.sqrt((coord3[0] - coord2[0])**2 - (coord3[1] - coord2[1])**2) #entre coord2 y coord3
+    d3=math.sqrt((coord1[0] - coord3[0])**2 - (coord1[1] - coord3[1])**2) #entre coord3 y coord1
+    return (d1+d2+d3)/3
+
+def IsCasiPalindromo(text):
+    notEqual=0
+    ln=len(text)
+    for cix in range(ln):
+        if cix>ln/2:
+            return True
+        if text[cix]!=text[ln-1-cix]:
+            notEqual+=1
+        if notEqual>1:
+            return False
+    return True 
+
+
+def mostPopular(arr, len):
+    out={}
+    popular=[0,0]
+    secPop=[0,0]
+    for i in arr:
+        if i in out:
+            out[i]+=1
+        else:
+            out[i]=1
+    for ppl in out:
+        if out[ppl]>popular[1]:
+            popular[0]=ppl
+            popular[1]=out[ppl]
+            secPop=[0,0]
+        elif out[ppl]==popular[1]:
+            secPop[0]=ppl
+            secPop[1]=out[ppl]
+    if secPop[1]==0:
+        return popular[0]
+    else:
+        if secPop[0]<popular[0]:
+            return secPop[0]
+        else:
+            return popular[0]
+    #print ("2nd num: ",out[1])
+
+
 
 

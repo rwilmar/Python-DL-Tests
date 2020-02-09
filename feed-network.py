@@ -4,6 +4,7 @@ from openvino.inference_engine import IECore, IENetwork
 
 ### TODO: Load the necessary libraries
 
+#CPU_EXTENSION = "/opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/libcpu_extension_sse4.so"
 CPU_EXTENSION = "/opt/intel/openvino/deployment_tools/inference_engine/lib/intel64/libcpu_extension.dylib"
 
 def get_args():
