@@ -1,5 +1,4 @@
-j=5
-print ("hola", j)
+### DONT USE FILE just to paste temporal code!!!!
 
 cap = cv2.VideoCapture(args.i)
     cap.open(args.i)
